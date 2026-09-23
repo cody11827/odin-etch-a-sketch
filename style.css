@@ -7,3 +7,7 @@
     max-width: 420px;
     gap : 3px;
 }
+
+.grid-square{
+    display : flex;
+}
