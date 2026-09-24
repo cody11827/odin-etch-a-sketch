@@ -2,8 +2,12 @@
 let container = document.querySelector(".container");
 
 
-function createGrid(){
-    for(let i =0; i < 256; i++){
+function createGrid(gridSize){
+    container.replaceChildren();
+    if (gridSize <= 0){
+        return;
+    }
+    for(let i =0; i < gridSize * gridSize; i++){
         let div = document.createElement("div");
         div.innerHTML = "test";
         div.classList.add('grid-square')
@@ -35,13 +39,21 @@ function onMouseOut(e){
 
 
 function onSettingsButtonClick(){
-    let gridSize = Math.min(100,prompt("Enter Grid Size: ",16))
+    let userInput = prompt("Enter Grid Size (Max:100): ",16);
+    if (userInput === null || userInput === "") return;
 
+    let gridSize = parseInt(userInput);
+    if(isNaN(gridSize) || gridSize < 1){
+        alert("Enter a valid num")
+        return;
+    }
+    console.log(gridSize);
+    createGrid(Math.min(100,gridSize));
 }
 
 
 function main(){
-    createGrid();
+    createGrid(16);
     container.addEventListener('mouseover',onMouseOver);
     container.addEventListener('mouseout',onMouseOut);
     document.querySelector("button").addEventListener('click',onSettingsButtonClick);
