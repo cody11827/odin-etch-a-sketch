@@ -23,7 +23,11 @@ function onMouseOver(e){
         return;
     }
 
-    target.style.backgroundColor = "red";
+    let r = Math.random();
+    let g = Math.random();
+    let b = Math.random();
+
+    target.style.backgroundColor = `rgb(${r*100}%, ${g*100}%, ${b*100}%)`;
 }
 
 function onMouseOut(e){
