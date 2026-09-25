@@ -28,6 +28,8 @@ function onMouseOver(e){
     let b = Math.random();
 
     target.style.backgroundColor = `rgb(${r*100}%, ${g*100}%, ${b*100}%)`;
+    let currentOpacity = parseFloat(target.style.opacity) || 1.0;
+    target.style.opacity = currentOpacity-0.1
 }
 
 function onMouseOut(e){
